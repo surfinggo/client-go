@@ -18,4 +18,8 @@ Repo: [spongeprojects/kubebigbrother](https://github.com/spongeprojects/kubebigb
 
 ## Usage
 
+```bash
+go get github.com/spongeprojects/client-go
+```
+
 Usage demonstration: main.go.
