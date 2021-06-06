@@ -1,0 +1,159 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: channels.spongeprojects.com
+  labels:
+    group: spongeprojects
+    project: kubebigbrother
+spec:
+  group: spongeprojects.com
+  names:
+    plural: channels
+    singular: channel
+    kind: Channel
+  scope: Cluster
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            x-kubernetes-preserve-unknown-fields: true
+            description: "spec contains type and detailed config of a channel, unknown fields are preserved"
+            type: object
+            properties:
+              type:
+                description: "type is type of channel, some supported values: slack, flock, telegram"
+                type: string
+    additionalPrinterColumns:
+    - name: Type
+      type: string
+      description: Type
+      jsonPath: .spec.type
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: watchers.spongeprojects.com
+  labels:
+    group: spongeprojects
+    project: kubebigbrother
+spec:
+  group: spongeprojects.com
+  names:
+    plural: watchers
+    singular: watcher
+    kind: Watcher
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              resource:
+                description: "resource is the name of the resource to watch, example: deploy, deployments, deployments.apps, deployments.v1.apps"
+                type: string
+              noticeWhenAdded:
+                description: "noticeWhenAdded is a flag to enable notification when a resource has been added to the cluster"
+                type: boolean
+              noticeWhenDeleted:
+                description: "noticeWhenDeleted is a flag to enable notification when a resource has been deleted from the cluster"
+                type: boolean
+              noticeWhenUpdated:
+                description: "noticeWhenUpdated is a flag to enable notification when a resource has been updated in the cluster"
+                type: boolean
+              updateOn:
+                description: "updateOn is an array of fields to trigger UPDATED notification, when no field in updateOn is changed, no notification will be sent, example: [.data, .spec.replicas]"
+                type: array
+                items:
+                  type: string
+              channelNames:
+                description: "channelNames is an array of channel names, reference to Channel resources"
+                type: array
+                items:
+                  type: string
+              resyncPeriod:
+                description: "resyncPeriod for this informer instance, example: 12h, 1d"
+                type: string
+              workers:
+                description: "workers is the number of workers for this informer instance, default to 3"
+                type: integer
+              maxRetries:
+                description: "maxRetries is the max number of retries for this informer instance, default to 3"
+                type: integer
+    additionalPrinterColumns:
+    - name: Resource
+      type: string
+      description: Resource
+      jsonPath: .spec.resource
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: clusterwatchers.spongeprojects.com
+  labels:
+    group: spongeprojects
+    project: kubebigbrother
+spec:
+  group: spongeprojects.com
+  names:
+    plural: clusterwatchers
+    singular: clusterwatcher
+    kind: ClusterWatcher
+  scope: Cluster
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              resource:
+                description: "resource is the name of the resource to watch, example: deploy, deployments, deployments.apps, deployments.v1.apps"
+                type: string
+              noticeWhenAdded:
+                description: "noticeWhenAdded is a flag to enable notification when a resource has been added to the cluster"
+                type: boolean
+              noticeWhenDeleted:
+                description: "noticeWhenDeleted is a flag to enable notification when a resource has been deleted from the cluster"
+                type: boolean
+              noticeWhenUpdated:
+                description: "noticeWhenUpdated is a flag to enable notification when a resource has been updated in the cluster"
+                type: boolean
+              updateOn:
+                description: "updateOn is an array of fields to trigger UPDATED notification, when no field in updateOn is changed, no notification will be sent, example: [.data, .spec.replicas]"
+                type: array
+                items:
+                  type: string
+              channelNames:
+                description: "channelNames is an array of channel names, reference to Channel resources"
+                type: array
+                items:
+                  type: string
+              resyncPeriod:
+                description: "resyncPeriod for this informer instance, example: 12h, 1d"
+                type: string
+              workers:
+                description: "workers is the number of workers for this informer instance, default to 3"
+                type: integer
+              maxRetries:
+                description: "maxRetries is the max number of retries for this informer instance, default to 3"
+                type: integer
+    additionalPrinterColumns:
+    - name: Resource
+      type: string
+      description: Resource
+      jsonPath: .spec.resource

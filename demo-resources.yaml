@@ -1,0 +1,33 @@
+apiVersion: "spongeprojects.com/v1alpha1"
+kind: Channel
+metadata:
+  name: print-to-stdout
+spec:
+  type: print
+  print:
+    writer: stdout
+---
+apiVersion: "spongeprojects.com/v1alpha1"
+kind: Watcher
+metadata:
+  name: secrets
+  namespace: demo
+spec:
+  resource: secrets
+  noticeWhenAdded: true
+  noticeWhenDeleted: true
+  noticeWhenUpdated: true
+  channelNames:
+  - print-to-stdout
+---
+apiVersion: "spongeprojects.com/v1alpha1"
+kind: ClusterWatcher
+metadata:
+  name: configmaps
+spec:
+  resource: configmaps
+  noticeWhenAdded: true
+  noticeWhenDeleted: true
+  noticeWhenUpdated: true
+  channelNames:
+  - print-to-stdout
