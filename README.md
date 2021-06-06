@@ -1,7 +1,7 @@
 # client-go
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/spongeprojects/client-go)](https://goreportcard.com/report/github.com/spongeprojects/client-go)
-[![License](https://img.shields.io/github/license/spongeprojects/client-go?color=blue)](https://github.com/spongeprojects/client-go/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/spongeprojects/client-go)](https://github.com/spongeprojects/client-go/blob/main/LICENSE)
 [![Tags](https://img.shields.io/github/v/tag/spongeprojects/client-go)](https://github.com/spongeprojects/client-go/tags)
 [![Go Reference](https://pkg.go.dev/badge/github.com/spongeprojects/client-go.svg)](https://pkg.go.dev/github.com/spongeprojects/client-go)
 
