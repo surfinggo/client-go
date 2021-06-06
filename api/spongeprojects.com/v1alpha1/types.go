@@ -178,5 +178,5 @@ type ClusterWatcherList struct {
 	// +optional
 	metav1.ListMeta `son:"metadata,omitempty"`
 
-	Items []Watcher `json:"items"`
+	Items []ClusterWatcher `json:"items"`
 }
