@@ -76,7 +76,6 @@ func (c *Clientset) Tracker() testing.ObjectTracker {
 
 var (
 	_ clientset.Interface = &Clientset{}
-	_ testing.FakeClient  = &Clientset{}
 )
 
 // SpongeprojectsV1alpha1 retrieves the SpongeprojectsV1alpha1Client
