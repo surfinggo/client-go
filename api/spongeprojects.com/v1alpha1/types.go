@@ -31,7 +31,7 @@ type ChannelSpec struct {
 	Shim map[string]string `json:"shim,omitempty" yaml:"shim,omitempty"`
 }
 
-// ChannelCallbackConfig is config for ChannelCallback, read from config file
+// ChannelCallbackConfig is config for ChannelCallback,
 type ChannelCallbackConfig struct {
 	Method          string `json:"method,omitempty" yaml:"method,omitempty"`
 	URL             string `json:"url" yaml:"url"`
@@ -42,7 +42,7 @@ type ChannelCallbackConfig struct {
 	UpdatedTemplate string `json:"updatedTemplate,omitempty" yaml:"updatedTemplate,omitempty"`
 }
 
-// ChannelDingtalkConfig is config for ChannelDingtalk, read from config file
+// ChannelDingtalkConfig is config for ChannelDingtalk,
 type ChannelDingtalkConfig struct {
 	WebhookURL      string   `json:"webhookURL" yaml:"webhookURL"`
 	Proxy           string   `json:"proxy,omitempty" yaml:"proxy,omitempty"`
@@ -53,7 +53,7 @@ type ChannelDingtalkConfig struct {
 	UpdatedTemplate string   `json:"updatedTemplate,omitempty" yaml:"updatedTemplate,omitempty"`
 }
 
-// ChannelFlockConfig is config for ChannelFlock, read from config file
+// ChannelFlockConfig is config for ChannelFlock,
 type ChannelFlockConfig struct {
 	URL             string `json:"url" yaml:"url"`
 	Proxy           string `json:"proxy,omitempty" yaml:"proxy,omitempty"`
@@ -63,7 +63,7 @@ type ChannelFlockConfig struct {
 	UpdatedTemplate string `json:"updatedTemplate,omitempty" yaml:"updatedTemplate,omitempty"`
 }
 
-// ChannelPrintConfig is config for ChannelPrint, read from config file
+// ChannelPrintConfig is config for ChannelPrint,
 type ChannelPrintConfig struct {
 	Writer          string `json:"writer" yaml:"writer"`
 	UseTemplate     bool   `json:"useTemplate,omitempty" yaml:"useTemplate,omitempty"`
@@ -72,7 +72,7 @@ type ChannelPrintConfig struct {
 	UpdatedTemplate string `json:"updatedTemplate,omitempty" yaml:"updatedTemplate,omitempty"`
 }
 
-// ChannelSlackConfig is config for ChannelSlack, read from config file
+// ChannelSlackConfig is config for ChannelSlack,
 type ChannelSlackConfig struct {
 	Token           string `json:"token" yaml:"token"`
 	Proxy           string `json:"proxy,omitempty" yaml:"proxy,omitempty"`
@@ -83,7 +83,7 @@ type ChannelSlackConfig struct {
 	UpdatedTemplate string `json:"updatedTemplate,omitempty" yaml:"updatedTemplate,omitempty"`
 }
 
-// ChannelTelegramConfig is config for ChannelTelegram, read from config file
+// ChannelTelegramConfig is config for ChannelTelegram,
 type ChannelTelegramConfig struct {
 	Token           string   `json:"token" yaml:"token"`
 	ChatIDs         []string `json:"chatIDs" yaml:"chatIDs"`
